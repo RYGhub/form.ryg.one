@@ -1,0 +1,13 @@
+[Unit]
+Description=RYGforms Flask Webserver
+Wants=network-online.target
+After=network-online.target nss-lookup.target
+
+[Service]
+Type=exec
+User=rygforms
+WorkingDirectory=/opt/rygforms
+ExecStart=/opt/rygforms/venv/bin/gunicorn -b 127.0.0.1:30012 rygforms.__main__:reverse_proxy_app
+
+[Install]
+WantedBy=multi-user.target
