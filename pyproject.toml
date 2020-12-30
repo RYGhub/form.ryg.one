@@ -1,11 +1,11 @@
 [tool.poetry]
 name = "rygforms"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["Your Name <you@example.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.7"
 flask = "^1.1.2"
 authlib = "^0.15.2"
 requests = "^2.25.1"

@@ -195,8 +195,8 @@ watchdog = ["watchdog"]
 
 [metadata]
 lock-version = "1.0"
-python-versions = "^3.9"
-content-hash = "fe7fe19980a6bd8fd383e14929f1261a48518c67f13adbc6cff0f25b1258e96f"
+python-versions = "^3.7"
+content-hash = "d07a1f0d1447b224637e050e39bd9bff635b674d60b88c269a6bd50ced942c67"
 
 [metadata.files]
 authlib = [
