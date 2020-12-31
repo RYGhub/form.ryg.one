@@ -40,9 +40,9 @@ def page_auth():
     userdata = ryg_login.get("userinfo").json()
     form_user = f.session["form_user"]
     form_id = f.session["form_id"]
-    user_nickname = userdata["nickname"]
+    user_name = userdata["name"]
     user_sub = userdata["sub"]
-    return f.redirect(f"https://{form_user}.typeform.com/to/{form_id}#nickname={user_nickname}&sub={user_sub}")
+    return f.redirect(f"https://{form_user}.typeform.com/to/{form_id}#name={user_name}&sub={user_sub}")
 
 
 if __name__ == "__main__":
