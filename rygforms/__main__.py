@@ -45,6 +45,11 @@ def page_auth():
     return f.redirect(f"https://{form_user}.typeform.com/to/{form_id}#name={user_name}&sub={user_sub}")
 
 
+@app.route("/")
+def page_root():
+    return f.render_template("main.htm")
+
+
 if __name__ == "__main__":
     # noinspection PyUnreachableCode
     if __debug__:
