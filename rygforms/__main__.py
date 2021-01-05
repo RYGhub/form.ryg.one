@@ -27,6 +27,11 @@ ryg_login = oauth.register(
 reverse_proxy_app = werkzeug.middleware.proxy_fix.ProxyFix(app=app, x_for=1, x_proto=0, x_host=1, x_port=0, x_prefix=0)
 
 
+@app.errorhandler(404)
+def page_404(_):
+    return f.render_template('error.htm', e=404, text="La risorsa che stai cercando è in un altro castello."), 404
+
+
 @app.route("/<string:form_user>/<string:form_id>")
 def page_form(form_user: str, form_id: str):
     f.session["form_user"] = form_user
