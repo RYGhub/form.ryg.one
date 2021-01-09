@@ -52,7 +52,7 @@ def page_auth():
 
 @app.route("/")
 def page_root():
-    return f.render_template("main.htm")
+    return f.render_template("main.html")
 
 
 if __name__ == "__main__":

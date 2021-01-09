@@ -1,9 +1,22 @@
-{% extends "stampo.htm"%}
-{% block title %}Error{% endblock %}
+{% extends "stampo.html" %}
+
+{% block title %}Errore{% endblock %}
+
 {% block content %}
-<div class="title">
-    <img class="logo" src="https://ryg.s3.fr-par.scw.cloud/logos/blue/logo.svg">
-    <div class="logo-text">{{e}}</div>
-    <div class="logo-subtitle">{{text}}</div>
-</div>
+    <hgroup>
+        <h1>
+            RYGforms
+        </h1>
+        <h2>
+            Errore
+        </h2>
+    </hgroup>
+    <div class="panel">
+        <h3>
+            {{e}}
+        </h3>
+        <p>
+            {{text}}
+        </p>
+    </div>
 {% endblock %}
