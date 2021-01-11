@@ -1,0 +1,58 @@
+{% extends "stampo.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <hgroup>
+        <h1>
+            RYGforms
+        </h1>
+        <h2>
+            Autenticazione in typeforms
+        </h2>
+    </hgroup>
+    <div class="splitter">
+        <section class="splitted panel">
+            <h3>
+                Cos'è questo sito?
+            </h3>
+            <p>
+                Questo sito permette di autenticare tramite RYGlogin le risposte date dai membri a dei Typeform.
+            </p>
+            <p>
+                Si evita così il problema dei voti duplicati o a nome altrui.
+            </p>
+        </section>
+        <section class="splitted panel">
+            <h3>
+                Contatti
+            </h3>
+            <p>
+                Il modo più veloce per contattare gli sviluppatori è nella <a href="https://github.com/RYGhub/rygforms">
+                pagina del progetto di GitHub</a>:
+            </p>
+            <ul>
+                <li>
+                    se hai riscontrato un bug, <a href="https://github.com/RYGhub/rygforms/issues/new">apri una
+                    Issue</a>;
+                </li>
+                <li>
+                    se hai una domanda riguardante il progetto,
+                    <a href="https://github.com/RYGhub/rygforms/discussions/new">avvia una nuova Discussion</a>;
+                </li>
+                <li>
+                    se vuoi contribuire a migliorare il progetto, <a href="https://github.com/RYGhub/rygforms/compare">
+                    apri una Pull Request</a>.
+                </li>
+            </ul>
+        </section>
+    </div>
+    <footer class="align-center">
+        <p>
+            Sviluppato <a href="https://github.com/RYGhub">dalla RYG</a>, per <a href="https://ryg.one">la RYG</a>.
+            Basato (e <span class="color-red">rossopillato</span>) su
+            <a href="https://github.com/LBindustries/Gestione">Gestione 1.05 Permafrost</a> e
+            <a href="https://github.com/RYGhub/bluelib">Bluelib</a>.
+        </p>
+    </footer>
+{% endblock %}
