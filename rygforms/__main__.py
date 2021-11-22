@@ -4,7 +4,7 @@ import werkzeug.middleware.proxy_fix
 import os
 import dotenv
 
-dotenv.find_dotenv(raise_error_if_not_found=True)
+dotenv.find_dotenv()
 
 app = f.Flask(__name__)
 
