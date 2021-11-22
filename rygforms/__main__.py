@@ -32,9 +32,17 @@ def page_404(_):
     return f.render_template('error.htm', e=404, text="La risorsa che stai cercando è in un altro castello."), 404
 
 
-@app.route("/<string:form_user>/<string:form_id>")
-def page_form(form_user: str, form_id: str):
+@app.route("/typeform/<string:form_user>/<string:form_id>")
+def page_typeform(form_user: str, form_id: str):
+    f.session["type"] = "typeform"
     f.session["form_user"] = form_user
+    f.session["form_id"] = form_id
+    return ryg_login.authorize_redirect(redirect_uri=f.url_for("page_auth", _external=True), audience="")
+
+
+@app.route("/tripetto/<string:form_id>")
+def page_tripetto(form_id: str):
+    f.session["type"] = "tripetto"
     f.session["form_id"] = form_id
     return ryg_login.authorize_redirect(redirect_uri=f.url_for("page_auth", _external=True), audience="")
 
@@ -43,11 +51,14 @@ def page_form(form_user: str, form_id: str):
 def page_auth():
     ryg_login.authorize_access_token()
     userdata = ryg_login.get("userinfo").json()
-    form_user = f.session["form_user"]
-    form_id = f.session["form_id"]
     user_name = userdata["name"]
     user_sub = userdata["sub"]
-    return f.redirect(f"https://{form_user}.typeform.com/to/{form_id}#name={user_name}&sub={user_sub}")
+    if f.session["type"] == "typeform":
+        return f.redirect(f"https://{f.session['form_user']}.typeform.com/to/{f.session['form_id']}#name={user_name}&sub={user_sub}")
+    elif f.session["type"] == "tripetto":
+        return f.redirect(f"https://tripetto.app/run/{f.session['form_id']}")
+    else:
+        return "No type found", 500
 
 
 @app.route("/")
