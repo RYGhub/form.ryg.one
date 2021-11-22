@@ -1,11 +1,13 @@
+import dotenv
+dotenv.load_dotenv()
+
 import flask as f
 import authlib.integrations.flask_client
 import werkzeug.middleware.proxy_fix
 import os
-import dotenv
 import datetime
+from .validator import signer
 
-dotenv.find_dotenv()
 
 app = f.Flask(__name__)
 
@@ -26,6 +28,7 @@ ryg_login = oauth.register(
 )
 
 reverse_proxy_app = werkzeug.middleware.proxy_fix.ProxyFix(app=app, x_for=1, x_proto=0, x_host=1, x_port=0, x_prefix=0)
+
 
 
 @app.errorhandler(404)
@@ -54,10 +57,11 @@ def page_auth():
     userdata = ryg_login.get("userinfo").json()
     user_name = userdata["name"]
     user_sub = userdata["sub"]
+    user_verify = signer.sign(datetime.datetime.now().isoformat())
     if f.session["type"] == "typeform":
-        return f.redirect(f"https://{f.session['form_user']}.typeform.com/to/{f.session['form_id']}#name={user_name}&sub={user_sub}")
+        return f.redirect(f"https://{f.session['form_user']}.typeform.com/to/{f.session['form_id']}?name={user_name}&sub={user_sub}&verify={user_verify}")
     elif f.session["type"] == "tripetto":
-        return f.redirect(f"https://tripetto.app/run/{f.session['form_id']}")
+        return f.redirect(f"https://tripetto.app/run/{f.session['form_id']}?name={user_name}&sub={user_sub}&verify={user_verify}")
     else:
         return "No type found", 500
 
