@@ -2,6 +2,43 @@
 
 {% block title %}Home{% endblock %}
 
+{% block extrahead %}
+    <script>
+        function typeform(event) {
+            const user = document.querySelector("#typeform-user").value
+            const id = document.querySelector("#typeform-id").value
+
+            const url = new URL(location.href)
+            url.pathname = `/typeform/${user}/${id}`
+
+            navigator.clipboard.writeText(url.href)
+
+            const button = document.querySelector("#typeform-generate")
+            button.classList.add("color-lime")
+            button.textContent = "Copied!"
+
+            event.preventDefault()
+            return false
+        }
+
+        function tripetto(event) {
+            const id = document.querySelector("#tripetto-id").value
+
+            const url = new URL(location.href)
+            url.pathname = `/tripetto/${id}`
+
+            navigator.clipboard.writeText(url.href)
+
+            const button = document.querySelector("#tripetto-generate")
+            button.classList.add("color-lime")
+            button.textContent = "Copied!"
+
+            event.preventDefault()
+            return false
+        }
+    </script>
+{% endblock %}
+
 {% block center %}
     <section class="chapter">
         <section class="panel panel-box">
@@ -36,6 +73,43 @@
                     se vuoi contribuire a migliorare il progetto, <a href="https://github.com/RYGhub/rygforms/compare"> apri una nuova Pull Request</a>.
                 </li>
             </ul>
+        </section>
+    </section>
+    <section class="panel panel-box">
+        <h3>
+            Genera un link
+        </h3>
+        <section class="chapter">
+            <section class="panel">
+                <h3>
+                    Typeform
+                </h3>
+                <form>
+                    <label for="typeform-user">Username</label>
+                    <input id="typeform-user" type="text" placeholder="steffo99" required/>
+                    <label for="typeform-id">Form ID</label>
+                    <input id="typeform-id" type="text" placeholder="xxxxxxxx" required/>
+                    <div class="form-row">
+                        <button type="button" id="typeform-generate" onclick="typeform()">
+                            Genera e copia
+                        </button>
+                    </div>
+                </form>
+            </section>
+            <section class="panel">
+                <h3>
+                    Tripetto
+                </h3>
+                <form>
+                    <label for="tripetto-id">Form ID</label>
+                    <input id="tripetto-id" type="text" placeholder="XXXXXXXXXX" required/>
+                    <div class="form-row">
+                        <button type="button" id="tripetto-generate" onclick="tripetto()">
+                            Genera e copia
+                        </button>
+                    </div>
+                </form>
+            </section>
         </section>
     </section>
     <footer class="align-center">
