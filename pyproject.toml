@@ -2,7 +2,7 @@
 name = "rygforms"
 version = "0.3.0"
 description = "OAuth2 Login for Typeform and Tripetto"
-authors = ["Your Name <you@example.com>"]
+authors = ["Stefano Pigozzi <me@steffo.eu>", "Lorenzo Balugani <lorenzo.balugani@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
