@@ -3,6 +3,7 @@ import authlib.integrations.flask_client
 import werkzeug.middleware.proxy_fix
 import os
 import dotenv
+import datetime
 
 dotenv.find_dotenv()
 
@@ -64,6 +65,12 @@ def page_auth():
 @app.route("/")
 def page_root():
     return f.render_template("main.html")
+
+
+@app.before_request
+def add_year_to_global_scope():
+    f.g.year = datetime.datetime.now().year
+    return None
 
 
 if __name__ == "__main__":

@@ -2,21 +2,13 @@
 
 {% block title %}Errore{% endblock %}
 
-{% block content %}
-    <hgroup>
-        <h1>
-            RYGforms
-        </h1>
-        <h2>
-            Errore
-        </h2>
-    </hgroup>
-    <div class="panel">
+{% block center %}
+    <section class="panel panel-box color-red">
         <h3>
             {{e}}
         </h3>
         <p>
             {{text}}
         </p>
-    </div>
+    </section>
 {% endblock %}

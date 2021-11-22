@@ -2,57 +2,51 @@
 
 {% block title %}Home{% endblock %}
 
-{% block content %}
-    <hgroup>
-        <h1>
-            RYGforms
-        </h1>
-        <h2>
-            Autenticazione in typeforms
-        </h2>
-    </hgroup>
-    <div class="splitter">
-        <section class="splitted panel">
+{% block center %}
+    <section class="chapter">
+        <section class="panel panel-box">
             <h3>
                 Cos'è questo sito?
             </h3>
             <p>
-                Questo sito permette di autenticare tramite RYGlogin le risposte date dai membri a dei Typeform.
+                Questo sito permette di richiedere il login per la compilazione di moduli creati con <a href="https://www.typeform.com/">Typeform</a> e <a href="https://tripetto.app/">Tripetto</a>.
             </p>
             <p>
-                Si evita così il problema dei voti duplicati o a nome altrui.
+                Viene utilizzato per verificare i voti inviati dai membri Royal Games nei sondaggi anonimi e non-anonimi.
             </p>
         </section>
-        <section class="splitted panel">
+        <section class="panel panel-box">
             <h3>
-                Contatti
+                Contattaci
             </h3>
             <p>
-                Il modo più veloce per contattare gli sviluppatori è nella <a href="https://github.com/RYGhub/rygforms">
-                pagina del progetto di GitHub</a>:
+                Per contattare gli sviluppatori, visita il <a href="https://github.com/RYGhub/rygforms">repository GitHub</a>!
+            </p>
+            <p>
+                In particolare:
             </p>
             <ul>
                 <li>
-                    se hai riscontrato un bug, <a href="https://github.com/RYGhub/rygforms/issues/new">apri una
-                    Issue</a>;
+                    se hai riscontrato un bug, <a href="https://github.com/RYGhub/rygforms/issues/new">apri una nuova Issue</a>;
                 </li>
                 <li>
-                    se hai una domanda riguardante il progetto,
-                    <a href="https://github.com/RYGhub/rygforms/discussions/new">avvia una nuova Discussion</a>;
+                    se hai una domanda riguardante il progetto, <a href="https://github.com/RYGhub/rygforms/discussions/new">avvia una nuova Discussion</a>;
                 </li>
                 <li>
-                    se vuoi contribuire a migliorare il progetto, <a href="https://github.com/RYGhub/rygforms/compare">
-                    apri una Pull Request</a>.
+                    se vuoi contribuire a migliorare il progetto, <a href="https://github.com/RYGhub/rygforms/compare"> apri una nuova Pull Request</a>.
                 </li>
             </ul>
         </section>
-    </div>
+    </section>
     <footer class="align-center">
         <p>
-            Sviluppato <a href="https://github.com/RYGhub">dalla RYG</a>, per <a href="https://ryg.one">la RYG</a>.
-            Basato (e <span class="color-red">rossopillato</span>) su
-            <a href="https://github.com/LBindustries/Gestione">Gestione 1.05 Permafrost</a> e
-            <a href="https://github.com/RYGhub/bluelib">Bluelib</a>.
+            © {{ g.year }} - <a href="https://steffo.eu">Stefano Pigozzi</a> & <a href="https://fermitech.info">Lorenzo Balugani</a>
+        </p>
+        <p>
+            Sviluppato <a href="https://github.com/RYGhub">dalla RYG</a>, per <a href="https://ryg.one">la RYG</a>
+        </p>
+        <p>
+            Basato (e <span class="color-red">rossopillato</span>) su <a href="https://github.com/LBindustries/Gestione">Gestione 1.05 Permafrost</a> e <a href="https://github.com/RYGhub/bluelib">Bluelib</a>
         </p>
     </footer>
 {% endblock %}

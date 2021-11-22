@@ -6,7 +6,7 @@
     <inspection_tool class="LessResolvedByNameOnly" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="LessUnresolvedMixin" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="LessUnresolvedVariable" enabled="true" level="ERROR" enabled_by_default="true" />
-    <inspection_tool class="LongLine" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="LongLine" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
     <inspection_tool class="PoetryPackageVersion" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="ProblematicWhitespace" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="PyAbstractClassInspection" enabled="true" level="ERROR" enabled_by_default="true" />
@@ -45,5 +45,10 @@
     <inspection_tool class="RegExpRepeatedSpace" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="RegExpUnexpectedAnchor" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="ShellCheck" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="SpellCheckingInspection" enabled="false" level="TYPO" enabled_by_default="false">
+      <option name="processCode" value="true" />
+      <option name="processLiterals" value="true" />
+      <option name="processComments" value="true" />
+    </inspection_tool>
   </profile>
 </component>
