@@ -57,7 +57,7 @@ def page_auth():
     userdata = ryg_login.get("userinfo").json()
     user_name = userdata["name"]
     user_sub = userdata["sub"]
-    user_verify = signer.sign(datetime.datetime.now().isoformat())
+    user_verify = str(signer.sign(datetime.datetime.now().isoformat()), encoding="ascii")
     if f.session["type"] == "typeform":
         return f.redirect(f"https://{f.session['form_user']}.typeform.com/to/{f.session['form_id']}?name={user_name}&sub={user_sub}&verify={user_verify}")
     elif f.session["type"] == "tripetto":
