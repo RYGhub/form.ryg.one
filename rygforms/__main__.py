@@ -55,13 +55,17 @@ def page_tripetto(form_id: str):
 def page_auth():
     ryg_login.authorize_access_token()
     userdata = ryg_login.get("userinfo").json()
-    user_name = userdata["name"]
-    user_sub = userdata["sub"]
-    user_verify = str(signer.sign(datetime.datetime.now().isoformat()), encoding="ascii")
+
+    name, verify_name = str(signer.sign(userdata["name"]), encoding="ascii").split(".")
+    sub, verify_sub = str(signer.sign(userdata["sub"]), encoding="ascii").split(".")
+    time, verify_time = str(signer.sign(datetime.datetime.now().isoformat()), encoding="ascii").split(".")
+
+    querystring = f"?n={name}&s={sub}&t={time}&vn={verify_name}&vs={verify_sub}&vt={verify_time}"
+
     if f.session["type"] == "typeform":
-        return f.redirect(f"https://{f.session['form_user']}.typeform.com/to/{f.session['form_id']}?name={user_name}&sub={user_sub}&verify={user_verify}")
+        return f.redirect(f"https://{f.session['form_user']}.typeform.com/to/{f.session['form_id']}{querystring}")
     elif f.session["type"] == "tripetto":
-        return f.redirect(f"https://tripetto.app/run/{f.session['form_id']}?name={user_name}&sub={user_sub}&verify={user_verify}")
+        return f.redirect(f"https://tripetto.app/run/{f.session['form_id']}{querystring}")
     else:
         return "No type found", 500
 
