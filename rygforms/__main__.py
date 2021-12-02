@@ -58,7 +58,8 @@ def page_auth():
 
     name, verify_name = str(signer.sign(userdata["name"]), encoding="ascii").split(".")
     sub, verify_sub = str(signer.sign(userdata["sub"]), encoding="ascii").split(".")
-    time, verify_time = str(signer.sign(datetime.datetime.now().isoformat()), encoding="ascii").split(".")
+    *time, verify_time = str(signer.sign(datetime.datetime.now().isoformat()), encoding="ascii").split(".")
+    time = ".".join(time)
 
     querystring = f"?n={name}&s={sub}&t={time}&vn={verify_name}&vs={verify_sub}&vt={verify_time}"
 
