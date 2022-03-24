@@ -18,4 +18,5 @@ FROM package AS environment
 ENV PYTHONUNBUFFERED=1
 
 FROM environment AS entrypoint
-ENTRYPOINT ["poetry", "run", "python", "-m", "impressive_strawberry.web"]
+ENTRYPOINT ["poetry", "run"]
+CMD [ "gunicorn", "-b", "0.0.0.0:80", "rygforms.__main__:reverse_proxy_app" ]
