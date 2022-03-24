@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "rygforms"
-version = "0.5.7"
+version = "0.5.8"
 description = "OAuth2 Login for Typeform and Tripetto"
 authors = ["Stefano Pigozzi <me@steffo.eu>", "Lorenzo Balugani <lorenzo.balugani@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
-flask = "^1.1.2"
-authlib = "^0.15.2"
+flask = "^2.0.3"
+authlib = "^1.0.0"
 requests = "^2.25.1"
 python-dotenv = "^0.15.0"
 click = "^8.0.3"
