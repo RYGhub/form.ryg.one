@@ -1,9 +1,11 @@
-FROM python:3.10-bullseye AS metadata
+FROM python AS metadata
 LABEL maintainer="Stefano Pigozzi <me@steffo.eu>"
+
+FROM metadata AS workdir
 WORKDIR /usr/src/rygforms
 
 FROM metadata AS poetry
-RUN pip install "poetry==1.1.12"
+RUN pip install "poetry"
 
 FROM poetry AS dependencies
 COPY pyproject.toml ./pyproject.toml
