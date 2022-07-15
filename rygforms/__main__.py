@@ -27,7 +27,7 @@ ryg_login = oauth.register(
     client_secret=os.getenv("CLIENT_SECRET")
 )
 
-reverse_proxy_app = werkzeug.middleware.proxy_fix.ProxyFix(app=app, x_for=1, x_proto=0, x_host=1, x_port=0, x_prefix=0)
+reverse_proxy_app = werkzeug.middleware.proxy_fix.ProxyFix(app=app, x_for=1, x_proto=1, x_host=1, x_port=0, x_prefix=0)
 
 
 
